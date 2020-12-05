@@ -156,7 +156,7 @@
                 map.setCenter(pos);
 
                 // Call Places Nearby Search on user's location
-                getNearbyPlaces(pos);
+                f.addEventListener('submit', getNearbyPlaces(pos));
               }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
