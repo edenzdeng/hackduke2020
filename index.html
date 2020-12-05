@@ -102,9 +102,8 @@
              </script>
            </nav>
        </header>
-        
+        <h1>SmallBizEatz</h1>
         <div class="container-fluid">
-            <h1>SmallBizEatz</h1>
             
             <div class="input-group md-form">
                 <form id="form">
@@ -128,8 +127,6 @@
           let currentInfoWindow;
           let service;
           let infoPane;
-          const q = document.getElementById('query');
-            
     function initMap() {
       // Initialize variables
       bounds = new google.maps.LatLngBounds();
@@ -193,7 +190,7 @@
       let request = {
         location: position,
         rankBy: google.maps.places.RankBy.DISTANCE,
-        keyword: q.value
+        keyword: 'sushi'
       };
 
       service = new google.maps.places.PlacesService(map);
