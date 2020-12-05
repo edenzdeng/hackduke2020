@@ -1,19 +1,24 @@
-.input-group.md-form.form-sm.form-1 input{
-    border: 1px solid #bdbdbd;
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
-}
-.input-group.md-form.form-sm.form-2 input {
-    border: 1px solid #bdbdbd;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-.input-group.md-form.form-sm.form-2 input.red-border {
-    border: 1px solid #ef9a9a;
-}
-.input-group.md-form.form-sm.form-2 input.lime-border {
-    border: 1px solid #cddc39;
-}
-.input-group.md-form.form-sm.form-2 input.amber-border {
-    border: 1px solid #ffca28;
-}
+.search.icon {
+    color: #000;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 3px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px currentColor;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  
+  .search.icon:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    height: 6px;
+    width: 1px;
+    background-color: currentColor;
+  }
+  
+  
