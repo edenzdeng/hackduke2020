@@ -156,7 +156,7 @@
                 map.setCenter(pos);
 
                 // Call Places Nearby Search on user's location
-                f.addEventListener('submit', getNearbyPlaces(pos));
+                //f.addEventListener('submit', getNearbyPlaces(pos));
               }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
@@ -307,6 +307,7 @@
           // Open the infoPane
           infoPane.classList.add("open");
         }
+        f.addEventListener('submit', getNearbyPlaces(pos));
   </script>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places&callback=initMap">
