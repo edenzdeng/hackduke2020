@@ -192,22 +192,22 @@
           function getNearbyPlaces(position) {
             let q = document.getElementById('query');
             console.log("query ", q.value);
-            let request = {
-              location: position,
-              rankBy: google.maps.places.RankBy.DISTANCE,
-              keyword: q.value
-            };
-
-            service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, nearbyCallback);
-          }
+            f.addEventListener('submit', () => {
+                let request = {
+                  location: position,
+                  rankBy: google.maps.places.RankBy.DISTANCE,
+                  keyword: q.value
+                };
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, nearbyCallback);
+          });
 
           // Handle the results (up to 20) of the Nearby Search
           function nearbyCallback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
               createMarkers(results);
               console.log("results ", results);
-            }
+            };
           }
 
           // Set markers at the location of each place result
