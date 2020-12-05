@@ -127,6 +127,8 @@
           let currentInfoWindow;
           let service;
           let infoPane;
+          const q = document.getElementById('query');
+            
     function initMap() {
       // Initialize variables
       bounds = new google.maps.LatLngBounds();
@@ -190,7 +192,7 @@
       let request = {
         location: position,
         rankBy: google.maps.places.RankBy.DISTANCE,
-        keyword: 'sushi'
+        keyword: q.value
       };
 
       service = new google.maps.places.PlacesService(map);
