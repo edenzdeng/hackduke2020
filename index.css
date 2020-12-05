@@ -45,7 +45,7 @@
     border: 1px solid #ffca28;
 }
 
-footer {
+#footer {
     display: block;
     position: sticky;
     left: 0;
