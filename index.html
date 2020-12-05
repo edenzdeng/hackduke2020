@@ -138,6 +138,24 @@
 
           }
         </script>
+        <script>
+            const f = document.getElementById('form');
+            const q = document.getElementById('query');
+            const google = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
+            const distance = '&radius=10000&type=restaurant&keyword=';
+            const apikey = '&key=AIzaSyAPT3qkS7ZDXt8zx3nJ-yNKSJ36gV0HhNM';
+            const lat = -33.8670522;
+            const long = 151.1957362;
+
+            function submitted(event) {
+                event.preventDefault();
+                const url = google + lat + ',' + long + distance + q.value + apikey;
+                const win = window.open(url, '_blank');
+                win.focus();
+            }
+
+            f.addEventListener('submit', submitted);
+        </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&callback=initMap">
         </script>
         
