@@ -41,47 +41,16 @@
             <h1>SmallBizEatz</h1>
             
             <div class="input-group md-form">
-                <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                <button class="btn btn-secondary" id="search">Search</button>
+                <form id="form">
+                    <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
+                    <button class="btn btn-secondary" id="search">Search</button>
+                </form>
+                
             </div>
         </div>
-        
-        <!-- <div class="search-container">
-            <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            </form> 
-        </div> -->
-    
+
         <div id="map"></div>
         <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
-
-        <!-- <script>
-            $(document).ready(function () {
-
-                $("#search").on('click', function() {
-                    let element = document.getElementById("query")
-                    searchPlaces(element);
-                });
-            });
-
-            function searchPlaces(element) {
-                let searched = element.val();
-                console.log(searched);
-                console.log(process.env);
-                let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="+process.env.GOOGLE_PLACES_API_KEY;
-                $.ajax(url, {
-                  type: 'GET',
-                  dataType: 'json',
-                  success: function(result) {
-                    console.log(result);
-                  },
-                  error: function() {
-                    console.log('Error');
-                  }
-                });
-            }
-        </script> -->
 
         <script>
           let pos;
