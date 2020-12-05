@@ -67,8 +67,34 @@
     </head>
     <body>
         <header>
-@@ -58,7 +114,9 @@ <h1>SmallBizEatz</h1>
+          <!-- Navigation -->
+            <nav class="navbar navbar-dark bg-dark">
+          <nav class="navbar navbar-dark bg-dark">
+                <div class="container">
+                    <div class="logo">
+                        <a href="#"><img src="logo.png" alt="logo"></a>
+                    </div>
+                <div class="navbar">
 
+                <div class="icon-bar" onclick="Show()">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+
+                <ul id="nav-lists">
+                    <li class="close"><span onclick="Hide()">×</span></li>
+                    <li><a href="index.html">Home</a></li>
+@@ -44,7 +102,7 @@
+             </script>
+           </nav>
+       </header>
+
+        
+        <div class="container-fluid">
+            <h1>SmallBizEatz</h1>
+
+@@ -57,8 +115,11 @@ <h1>SmallBizEatz</h1>
             </div>
         </div>
 
@@ -77,7 +103,10 @@
         <div id="map"></div>
 
 
-@@ -70,91 +128,188 @@ <h1>SmallBizEatz</h1>
+        <script>
+          let pos;
+          let map;
+@@ -67,83 +128,188 @@ <h1>SmallBizEatz</h1>
           let currentInfoWindow;
           let service;
           let infoPane;
@@ -85,7 +114,6 @@
             bounds = new google.maps.LatLngBounds();
             infoWindow = new google.maps.InfoWindow;
             currentInfoWindow = infoWindow;
-
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(position => {
                 pos = {
@@ -124,7 +152,6 @@
               'Error: Your browser doesn\'t support geolocation.');
             infoWindow.open(map);
             currentInfoWindow = infoWindow;
-
           }
         </script>
         <script>
@@ -135,13 +162,32 @@
             const apikey = '&key='+process.env.GOOGLE_PLACES_API_KEY;
             const lat = -33.8670522;
             const long = 151.1957362;
-
             function submitted(event) {
                 event.preventDefault();
                 const url = google + pos.lat + ',' + pos.lng + distance + q.value + apikey;
                 const win = window.open(url, '_blank');
                 win.focus();
             }
+            f.addEventListener('submit', submitted);
+        </script>
+        <script>
+            // Create the script tag, set the appropriate attributes
+            var script = document.createElement('script');
+            script.src = "https://maps.googleapis.com/maps/api/js?key="+process.env.GOOGLE_MAP_API_KEY+"&callback=initMap";
+            script.defer = true;
+            // Attach your callback function to the `window` object
+            window.initMap = function() {
+            // JS API is loaded and available
+            };
+            // Append the 'script' element to 'head'
+            document.head.appendChild(script);
+        </script>
+<!-- 
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key="+{process.env.GOOGLE_MAP_API_KEY+"&callback=initMap">
+        </script> -->
+       <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
+      </body>
+
     function initMap() {
       // Initialize variables
       bounds = new google.maps.LatLngBounds();
@@ -149,8 +195,6 @@
       currentInfoWindow = infoWindow;
       infoPane = document.getElementById('panel');
 
-            f.addEventListener('submit', submitted);
-        </script>
       // Try HTML5 geolocation
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -164,24 +208,6 @@
           });
           bounds.extend(pos);
 
-        <script>
-            // Create the script tag, set the appropriate attributes
-            var script = document.createElement('script');
-            script.src = "https://maps.googleapis.com/maps/api/js?key="+process.env.GOOGLE_MAP_API_KEY+"&callback=initMap";
-            script.defer = true;
-
-            // Attach your callback function to the `window` object
-            window.initMap = function() {
-            // JS API is loaded and available
-            };
-
-            // Append the 'script' element to 'head'
-            document.head.appendChild(script);
-
-        </script>
-<!-- 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key="+{process.env.GOOGLE_MAP_API_KEY+"&callback=initMap">
-        </script> -->
           infoWindow.setPosition(pos);
           infoWindow.setContent('Location found.');
           infoWindow.open(map);
@@ -343,8 +369,6 @@
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places&callback=initMap">
   </script>
-
-      </body>
 
     </body>   
 
