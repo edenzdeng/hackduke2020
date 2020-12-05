@@ -108,7 +108,7 @@
             <div class="input-group md-form">
                 <form id="form">
                     <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                    <button class="btn btn-info" onclick="initMap()" id="search">Search</button>
+                    <button class="btn btn-outline-info" onclick="initMap()" id="search">Search</button>
                 </form>
                 
             </div>
@@ -191,6 +191,7 @@
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
             let q = document.getElementById('query');
+            console.log("query ", q.value);
             let request = {
               location: position,
               rankBy: google.maps.places.RankBy.DISTANCE,
@@ -205,6 +206,7 @@
           function nearbyCallback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
               createMarkers(results);
+              console.log("results ", results);
             }
           }
 
