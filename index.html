@@ -52,7 +52,7 @@
             <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            </form>
+            </form> 
         </div> -->
     
         <div id="map"></div>
@@ -143,9 +143,9 @@
             const q = document.getElementById('query');
             const google = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
             const distance = '&radius=10000&type=restaurant&keyword=';
-            const apikey = '&key=AIzaSyAPT3qkS7ZDXt8zx3nJ-yNKSJ36gV0HhNM';
-            const lat = pos.lat;
-            const long = pos.lng;
+            const apikey = '&key='+process.env.GOOGLE_MAP_API_KEY;
+            const lat = -33.8670522;
+            const long = 151.1957362;
 
             function submitted(event) {
                 event.preventDefault();
@@ -156,8 +156,25 @@
 
             f.addEventListener('submit', submitted);
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&callback=initMap">
+
+        <script>
+            // Create the script tag, set the appropriate attributes
+            var script = document.createElement('script');
+            script.src = "https://maps.googleapis.com/maps/api/js?key="+process.env.GOOGLE_MAP_API_KEY+"&callback=initMap";
+            script.defer = true;
+
+            // Attach your callback function to the `window` object
+            window.initMap = function() {
+            // JS API is loaded and available
+            };
+
+            // Append the 'script' element to 'head'
+            document.head.appendChild(script);
+
         </script>
+<!-- 
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key="+{process.env.GOOGLE_MAP_API_KEY+"&callback=initMap">
+        </script> -->
         
         <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
       </body>
