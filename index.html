@@ -185,14 +185,11 @@
             currentInfoWindow = infoWindow;
 
             // Call Places Nearby Search on the default location
-            getNearbyPlaces(pos);
+            f.addEventListener('submit', getNearbyPlaces(pos));
           }
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
-            //let q = document.getElementById('query');
-            //console.log("query ", q.value);
-            f.addEventListener('submit', () => {
                 let q = document.getElementById('query');
                 let request = {
                   location: position,
@@ -201,7 +198,6 @@
                 };
                 service = new google.maps.places.PlacesService(map);
                 service.nearbySearch(request, nearbyCallback);
-              });
           }
 
           // Handle the results (up to 20) of the Nearby Search
