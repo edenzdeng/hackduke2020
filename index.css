@@ -13,7 +13,7 @@
     font-family: CaslonBlackSSK;
 }
 
-.search.icon {
+.search-icon {
     color: #000;
     position: absolute;
     margin-top: 2px;
@@ -26,7 +26,7 @@
             transform: rotate(-45deg);
 }
   
-.search.icon:before {
+.search-icon:before {
     content: '';
     position: absolute;
     top: 12px;
