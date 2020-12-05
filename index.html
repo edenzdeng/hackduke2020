@@ -12,9 +12,10 @@
     <body>
         <header>
           <!-- Navigation -->
-            <div class="container">
+            <nav>
+                <div class="container">
                     <div class="logo">
-                        <a href="#"><img src="" alt="logo"></a>
+                        <a href="#"><img src="logo.png" alt="logo"></a>
                     </div>
                 <div class="navbar">
 
@@ -32,31 +33,16 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
 
-                </div>
-                </div>
-
-
-                <script>
-                var navList = document.getElementById("nav-lists");
-                function Show() {
-                navList.classList.add("_Menus-show");
-                }
-
-                function Hide(){
-                navList.classList.remove("_Menus-show");
-                }
-                </script>
-
-        </header>
+              </div>
+           </nav>
+       </header>
         
         <div class="container-fluid">
             <h1>SmallBizEatz</h1>
             
             <div class="input-group md-form">
-                <form role="search" id="form">
-                    <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                    <button class="btn btn-outline-primary" id="search">Search</button>
-                </form>
+                <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
+                <button class="btn btn-primary" id="search">Search</button>
             </div>
         </div>
         
@@ -64,11 +50,12 @@
             <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            </form>
+            </form> 
         </div> -->
     
         <div id="map"></div>
-        
+        <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
+
         <script>
             $(document).ready(function () {
 
@@ -82,13 +69,13 @@
                 let searched = element.val();
                 console.log(searched);
                 console.log(process.env);
-                let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="+process.env.key;
+                let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="+process.env.GOOGLE_PLACES_API_KEY;
                 $.ajax(url, {
                   type: 'GET',
                   dataType: 'json',
                   success: function(result) {
                     console.log(result);
-                    },
+                  },
                   error: function() {
                     console.log('Error');
                   }
@@ -161,7 +148,7 @@
 
             function submitted(event) {
                 event.preventDefault();
-                const url = google + lat + ',' + long + distance + q.value + apikey;
+                const url = google + pos.lat + ',' + pos.lng + distance + q.value + apikey;
                 const win = window.open(url, '_blank');
                 win.focus();
             }
@@ -184,8 +171,10 @@
             document.head.appendChild(script);
 
         </script>
+<!-- 
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key="+{process.env.GOOGLE_MAP_API_KEY+"&callback=initMap">
+        </script> -->
         
-        <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
       </body>
       
     
