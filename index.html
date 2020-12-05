@@ -43,10 +43,8 @@
             <h1>SmallBizEatz</h1>
             
             <div class="input-group md-form">
-                <form role="search" id="form">
-                    <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                    <button class="btn btn-outline-primary" id="search">Search</button>
-                </form>
+                <input id="query" class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
+                <button class="btn btn-primary" id="search">Search</button>
             </div>
         </div>
         
@@ -72,13 +70,13 @@
                 let searched = element.val();
                 console.log(searched);
                 console.log(process.env);
-                let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="+process.env.key;
+                let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="+process.env.GOOGLE_PLACES_API_KEY;
                 $.ajax(url, {
                   type: 'GET',
                   dataType: 'json',
                   success: function(result) {
                     console.log(result);
-                    },
+                  },
                   error: function() {
                     console.log('Error');
                   }
