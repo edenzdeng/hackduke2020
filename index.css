@@ -238,7 +238,7 @@ body {
     background-color: grey;
 }
 
-.container {
+.nav {
   height: 60px;
   background-color: #35B67F; /*color of main nav bar*/
   display: -webkit-box;
