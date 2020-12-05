@@ -133,7 +133,7 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
-  .nav {
+  .navigation {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -238,7 +238,7 @@ body {
     background-color: grey;
 }
 
-.nav {
+.navigation {
   height: 60px;
   background-color: #35B67F; /*color of main nav bar*/
   display: -webkit-box;
