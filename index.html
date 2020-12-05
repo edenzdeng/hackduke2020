@@ -126,7 +126,7 @@
           let service;
           let infoPane;
           // let q = document.getElementById('query');
-          const f = document.getElementById('form');
+          var f = document.getElementById('form');
             
           function initMap() {
             // Initialize variables
@@ -188,7 +188,7 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
-                const q = document.getElementById('query');
+                let q = document.getElementById('query');
                 let request = {
                   location: position,
                   rankBy: google.maps.places.RankBy.DISTANCE,
