@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <link rel="stylesheet" type="text/css" href="index.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -68,12 +68,11 @@
     <body>
         <header>
           <!-- Navigation -->
-            <nav>
-                <div class="container">
-                    <div class="logo">
-                        <a href="#"><img src="logo.png" alt="logo"></a>
-                    </div>
-                <div class="navbar">
+            <nav class="container">
+              <div class="logo">
+                  <a href="#"><img src="logo.png" alt="logo"></a>
+              </div>
+              <div class="navbar">
 
                 <div class="icon-bar" onclick="Show()">
                     <i></i>
@@ -89,8 +88,7 @@
                 </ul>
 
               </div>
-                </div>
-             <script>
+              <script>
                 var navList = document.getElementById("nav-lists");
                 function Show() {
                 navList.classList.add("_Menus-show");
@@ -99,7 +97,7 @@
                 function Hide(){
                 navList.classList.remove("_Menus-show");
                 }
-             </script>
+              </script>
            </nav>
        </header>
         <h1 id="pagetitle">SmallBizEatz</h1>
