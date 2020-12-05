@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="index.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="index.js"></script>
@@ -16,7 +15,7 @@
             
             <div class="input-group md-form">
                 <input class="form-control my-0 py-1 amber-border" type="search" placeholder="I'm hungry for..." aria-label="Search" name="q">
-                <button>Search</button>
+                <button class="btn btn-primary" id="search">Search</button>
                 <div class="input-group-append">
                     <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
                         aria-hidden="true"></i>
@@ -34,7 +33,34 @@
         </div>
     
         <div id="map"></div>
-      
+        
+        <script>
+            $(document).ready(function () {
+
+                $("#search").on('click', function() {
+                    searchPlaces();
+                });
+            });
+
+            function searchPlaces(element) {
+                console.log(element);
+                // let searched = element.val();
+                // console.log(process.env);
+                // let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="
+                // $.ajax('/url', {
+                //   type: 'GET',
+                //   dataType: 'json',
+                //   data: {term: selected},
+                //   success: function(result) {
+                //     console.log(result);
+                //     },
+                //   error: function() {
+                //     console.log('Error');
+                //   }
+                // });
+            }
+        </script>
+
         <script>
           let pos;
           let map;

@@ -1,25 +1,25 @@
-$(document).ready(function () {
+// $(document).ready(function () {
 
-    $("#search").on('click', function() {
-      searchPlaces();
-    });
-});
+//     $("#search").on('click', function() {
+//       searchPlaces();
+//     });
+// });
 
-function searchPlaces(element) {
-  console.log(element);
-    // let searched = element.val();
-    // console.log(process.env);
-    // let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="
-    // $.ajax('/url', {
-    //   type: 'GET',
-    //   dataType: 'json',
-    //   data: {term: selected},
-    //   success: function(result) {
-    //     console.log(result);
-    //     },
-    //   error: function() {
-    //     console.log('Error');
-    //   }
-    // });
-  }
+// function searchPlaces(element) {
+//   console.log(element);
+//     // let searched = element.val();
+//     // console.log(process.env);
+//     // let url = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+searched+"&key="
+//     // $.ajax('/url', {
+//     //   type: 'GET',
+//     //   dataType: 'json',
+//     //   data: {term: selected},
+//     //   success: function(result) {
+//     //     console.log(result);
+//     //     },
+//     //   error: function() {
+//     //     console.log('Error');
+//     //   }
+//     // });
+//   }
   
