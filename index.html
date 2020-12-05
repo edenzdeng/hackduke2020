@@ -190,9 +190,10 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
-            let q = document.getElementById('query');
-            console.log("query ", q.value);
+            //let q = document.getElementById('query');
+            //console.log("query ", q.value);
             f.addEventListener('submit', () => {
+                let q = document.getElementById('query');
                 let request = {
                   location: position,
                   rankBy: google.maps.places.RankBy.DISTANCE,
