@@ -7,6 +7,18 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            #map {
+              height: 100%;
+              background-color: grey;
+            }
+            html,
+            body {
+              height: 100%;
+              margin: 0;
+              padding: 0;
+            }
+          </style>
     </head>
     <body>
         <div class="container-fluid">
@@ -31,5 +43,68 @@
         </div>
      <footer>&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
     </body>
+
+    <body>
+        <div id="map"></div>
+      
+        <script>
+          let pos;
+          let map;
+          let bounds;
+          let infoWindow;
+          let currentInfoWindow;
+          let service;
+          let infoPane;
+          function initMap() {
+            bounds = new google.maps.LatLngBounds();
+            infoWindow = new google.maps.InfoWindow;
+            currentInfoWindow = infoWindow;
+
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(position => {
+                pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: pos,
+                  zoom: 15
+                });
+                bounds.extend(pos);
+      
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+    
+              }, () => {
+                handleLocationError(true, infoWindow);
+              });
+            } else {
+              handleLocationError(false, infoWindow);
+            }
+          }
+      
+          function handleLocationError(browserHasGeolocation, infoWindow) {
+            pos = {lat: -33.856, lng: 151.215};
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: pos,
+              zoom: 15
+            });
+      
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+              'Geolocation permissions denied. Using default location.' :
+              'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+            currentInfoWindow = infoWindow;
+
+          }
+        </script>
+      
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&callback=initMap">
+        </script>
+      </body>
+      
     
 </html>
