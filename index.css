@@ -35,21 +35,7 @@ body {
   padding: 0;
 }
 
-.container {
-  height: 60px;
-  background-color: #35B67F; /*color of main nav bar*/
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  overflow: hidden;
-  width: 100%;
-  margin: 0px;
-}
+
 
 .logo {
   max-width: 250px;
@@ -254,4 +240,18 @@ body {
     background-color: grey;
 }
 
-
+.container {
+  height: 60px;
+  background-color: #35B67F; /*color of main nav bar*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  margin: 0px;
+}
