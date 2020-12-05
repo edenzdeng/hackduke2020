@@ -223,6 +223,10 @@ body {
     border-radius: 100%;
     -webkit-transform: rotate(-45deg);
             transform: rotate(-45deg);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center; /* aligns on vertical for column */
+    align-items: center; /* aligns on horizontal for column */
 }
   
 .search-icon:before {
@@ -233,6 +237,7 @@ body {
     height: 6px;
     width: 1px;
     background-color: currentColor;
+    
 }
 
 #map{
