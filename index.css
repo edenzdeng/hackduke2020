@@ -1,4 +1,19 @@
-.search-icon {
+#footer {
+    display: block;
+    position: sticky;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 2rem;
+    color: white;
+    background-color: #578FBD;
+    width: 100%;
+    font-family: CaslonBlackSSK;
+}
+
+.search.icon {
     color: #000;
     position: absolute;
     margin-top: 2px;
@@ -45,17 +60,3 @@
     border: 1px solid #ffca28;
 }
 
-#footer {
-    display: block;
-    position: sticky;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    line-height: 2rem;
-    color: white;
-    background-color: #578FBD;
-    width: 100%;
-    font-family: CaslonBlackSSK;
-}
