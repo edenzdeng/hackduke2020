@@ -186,9 +186,11 @@
           // one result
           function singleCallback(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-              createMarkers(results[0]);
+              singleMarker(results);
             }
-          }                                      
+          }
+          
+          
 
           function initMap() {
             // Initialize variables
@@ -286,6 +288,47 @@
               google.maps.event.addListener(marker, 'click', () => {
                 let request = {
                   placeId: place.place_id,
+                  fields: ['name', 'formatted_address', 'geometry', 'rating',
+                    'website', 'photos']
+                };
+
+                /* Only fetch the details of a place when the user clicks on a marker.
+                  * If we fetch the details for all place results as soon as we get
+                  * the search response, we will hit API rate limits. */
+                service.getDetails(request, (placeResult, status) => {
+                  showDetails(placeResult, marker, status)
+                });
+              });
+
+              // Adjust the map bounds to include the location of this marker
+              bounds.extend(place.geometry.location);
+            }
+          });
+            /* Once all the markers have been placed, adjust the bounds of the map to
+              * show all the markers within the visible area. */
+            map.fitBounds(bounds);
+          }
+            
+          function singleMarker(places) {
+            var smallplaces = [];
+            
+            places.forEach(place => {
+                if(!isChain(place.name)){
+                    smallplaces.push(place);
+                });
+            }
+
+            let randplace = Math.floor(Math.random() * smallplaces.length);
+                let marker = new google.maps.Marker({
+                  position: randplace.geometry.location,
+                  map: map,
+                  title: randplace.name
+                });
+              
+              // Add click listener to each marker
+              google.maps.event.addListener(marker, 'click', () => {
+                let request = {
+                  placeId: randplace.place_id,
                   fields: ['name', 'formatted_address', 'geometry', 'rating',
                     'website', 'photos']
                 };
