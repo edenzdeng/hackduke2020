@@ -124,6 +124,7 @@
           let infoPane;
           
           let chains = d3.csv("TopChainRestaurants2020.csv").then(function(d) {
+              console.log(d);
               return d.values();
           })
           
@@ -229,7 +230,7 @@
           function createMarkers(places) {
 
             places.forEach(place => {
-              if(readTextFile(place.name)){
+              if(!isChain(place.name)){
                 let marker = new google.maps.Marker({
                   position: place.geometry.location,
                   map: map,
