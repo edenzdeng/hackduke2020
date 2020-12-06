@@ -215,7 +215,7 @@ body {
 }
   
 .search-icon:before {
-    content: '';
+    content: ' ';
     position: absolute;
     top: 12px;
     left: 5px;
@@ -223,6 +223,16 @@ body {
     width: 1px;
     background-color: currentColor;
     
+}
+
+.search-icon:after {
+  content: ' ';
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  height: 6px;
+  width: 1px;
+  background-color: currentColor; 
 }
 
 #map{
@@ -248,7 +258,6 @@ body {
   margin-left: 5px;
   background-color: #35B67F;
   color: white;
-  padding: auto 5px;
 }
 
 #form{
