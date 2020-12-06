@@ -11,7 +11,8 @@ None of our team members have attended a hackathon before, so it was both new an
 
 ## Next Steps
 We've only filtered local restaurants from chain restaurants in our current website, but we are looking to expand beyond the food industry to include grocery stores, clothing boutiques, barber shops, and more. These establishments are the heart and soul of our communities, so we want to encourage shopping small as much as possible (Q8). 
-
-
-This project was created for HackDuke 2020 under the inequality track (Q1). Built with HTML, CSS, and JS (Q4).
+\
+\
+\
+This project was created for HackDuke 2020 under the inequality track (Q1). Built with HTML, CSS, and JS (Q4).\
 © 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng
