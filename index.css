@@ -109,5 +109,6 @@ body {
 #lucky{
   background-color: #35B67F;
   color: white;
-  margin: 10px;
+  height: 46px !important; 
+  margin-left: 10px;
 }
