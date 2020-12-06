@@ -196,6 +196,7 @@
             service = new google.maps.places.PlacesService(map);
             service.textSearch(request, (results, status) => {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
+                alert(q.value);
                 console.log("Results", results);
                 console.log("Qvalue", q.value);
                 alert(results);
