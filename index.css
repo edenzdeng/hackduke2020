@@ -38,7 +38,7 @@ body {
   max-width: 500px;
   padding: 0 10px;
   overflow: hidden;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
 }
 
 .logo a {
@@ -47,13 +47,13 @@ body {
   flex-wrap: wrap;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
+  align-items: left;
   height: 80px;
 }
 
 .logo a img {
   max-width: 100%;
-  max-height: 80px;
+  max-height: 100px;
 }
 
 .navbar {
