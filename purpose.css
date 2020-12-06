@@ -24,3 +24,8 @@
     padding-top: 10px;
     font-size: 1.5em; 
 }
+
+.nav-item{
+    background-color: #35B67F;
+    color:white;
+}
