@@ -189,12 +189,12 @@
             q = document.getElementById('query');
             let request = {
               location: position,
-              radius: '1000',
-              keyword: q.value
-              // type: ['restaurant']
+              radius: '10000',
+              query: q.value,
+              type: ['restaurant']
             };
             service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, (results, status) => {
+            service.textSearch(request, (results, status) => {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
                 console.log(results);
                 console.log(q.value);
