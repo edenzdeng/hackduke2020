@@ -270,3 +270,8 @@ body {
   margin-bottom: 20px;
   width: 50%;
 }
+
+#query{
+  height: 46px !important; 
+  font-size: 18px;
+}
