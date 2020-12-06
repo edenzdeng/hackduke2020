@@ -103,7 +103,7 @@
         <h1 id="pagetitle">SmallBizEatz</h1>
         <div class="container-fluid">
           <div class="search-bar"></div>  
-            <form id="form">
+            <form role="search" id="form">
                 <input id="query" class="form-control form-control-lg" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
                 <button class="btn btn-lg" id="search">Search</button>       
               </form>
@@ -151,7 +151,7 @@
                 map.setCenter(pos);
 
                 // Call Places Nearby Search on user's location
-                f.addEventListener('click', getNearbyPlaces(pos));
+                f.addEventListener('submit', getNearbyPlaces(pos));
               }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
@@ -180,7 +180,7 @@
             currentInfoWindow = infoWindow;
 
             // Call Places Nearby Search on the default location
-            f.addEventListener('click', getNearbyPlaces(pos));
+            f.addEventListener('submit', getNearbyPlaces(pos));
           }
 
           // Perform a Places Nearby Search Request
