@@ -104,7 +104,7 @@
         <div class="container-fluid">
             <form role="search" id="form">
                 <input id="query" class="form-control form-control-lg" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                <button class="btn btn-lg" onclick="getNearbyPlaces()" id="search"><span class="search-icon"></span></button>       
+                <button class="btn btn-lg" onclick="initMap()" id="search"><span class="search-icon"></span></button>       
             </form>
         </div>        
         <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
@@ -133,30 +133,30 @@
             infoPane = document.getElementById('panel');
 
             // Try HTML5 geolocation
-            // if (navigator.geolocation) {
-            //   navigator.geolocation.getCurrentPosition(position => {
-            //     const pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            //     map = new google.maps.Map(document.getElementById('map'), {
-            //       center: pos,
-            //       zoom: 15
-            //     });
-            //     bounds.extend(pos);
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(position => {
+                const pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: pos,
+                  zoom: 15
+                });
+                bounds.extend(pos);
 
-            //     infoWindow.setPosition(pos);
-            //     infoWindow.setContent('Location found.');
-            //     infoWindow.open(map);
-            //     map.setCenter(pos);
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
 
-            //     // Call Places Nearby Search on user's location
-            //     getNearbyPlaces(pos);
-            //   }, () => {
-            //     // Browser supports geolocation, but user has denied permission
-            //     handleLocationError(true, infoWindow);
-            //   });
-            // } else {
+                // Call Places Nearby Search on user's location
+                getNearbyPlaces(pos);
+              }, () => {
+                // Browser supports geolocation, but user has denied permission
+                handleLocationError(true, infoWindow);
+              });
+            } else {
               // Browser doesn't support geolocation
               handleLocationError(false, infoWindow);
-            // }
+            }
           }
 
           // Handle a geolocation error
