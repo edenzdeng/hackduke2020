@@ -242,7 +242,7 @@ body {
 }
 
 .navigation {
-  height: 60px;
+  height: 80px;
   background-color: #35B67F; /*color of main nav bar*/
   display: flex;
   -ms-flex-wrap: wrap;
