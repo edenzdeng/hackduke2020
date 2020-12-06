@@ -122,11 +122,15 @@
           let currentInfoWindow;
           let service;
           let infoPane;
+          let chains;
           
-          let chains = d3.csv("TopChainRestaurants2020.csv").then(function(d) {
+          window.onload = function() {
+            d3.csv("TopChainRestaurants2020.csv").then(function(d) {
               console.log(d);
-              return d.values();
-          })
+              chains = d.map(array => array.name);
+            })
+          }
+          
           
           var form = document.getElementById("form");
           function handleForm(event) { 
