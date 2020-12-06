@@ -184,17 +184,17 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces() {
-            let position
+            let locat
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(position => {
-                position = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                locat = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
               })
             } else{ 
-              position = new google.maps.LatLng(-33.856,151.215);
+              locat = new google.maps.LatLng(-33.856,151.215);
             }
             q = document.getElementById('query');
             let request = {
-              location: position,
+              location: locat,
               radius: '10000',
               query: q.value,
               type: 'restaurant'
