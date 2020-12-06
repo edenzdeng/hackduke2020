@@ -196,18 +196,8 @@
 
 
           function isChain(str){
-            console.log("CHAINS", chains);
             return chains.includes(str);
           };
-
-          // async function getChains(){
-          //   let response = await fetch("TopChainRestaurants.csv");
-          //   let data = await response.json();
-          //   console.log(response);
-          //   console.log(data);
-          //   var chains = data.split('\n').map(function(row){return row.split('\n')});
-          //   return chains;
-          // }
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
