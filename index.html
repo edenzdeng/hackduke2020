@@ -187,14 +187,14 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
-                q = document.getElementById('query');
-                let request = {
-                  location: position,
-                  radius: '500',
-                  keyword: q.value,
-                };
-                service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, nearbyCallback());
+            q = document.getElementById('query');
+            let request = {
+              location: position,
+              radius: '500',
+              keyword: q.value,
+            };
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, nearbyCallback());
           }
 
           // Handle the results (up to 20) of the Nearby Search
