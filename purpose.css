@@ -45,6 +45,7 @@
 .logo {
     max-width: 500px;
     overflow: hidden;
+    padding-bottom: 10px;
     position:relative;
     top:0;
     left:0;
