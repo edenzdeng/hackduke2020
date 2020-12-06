@@ -244,6 +244,11 @@ body {
   margin: 0px;
 }
 
+.search-bar{
+  height: 46px;
+  padding: 10px 12px;
+}
+
 #search{
   margin-left: 5px;
   background-color: #35B67F;
