@@ -124,8 +124,11 @@
           let infoPane;
           
           var form = document.getElementById("form");
-          function handleForm(event) { event.preventDefault(); } 
-          form.addEventListener('click', handleForm);
+          function handleForm(event) { 
+              event.preventDefault(); 
+              initMap();
+          } 
+          form.addEventListener('submit', handleForm);
 
           function initMap() {
             // Initialize variables
