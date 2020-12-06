@@ -202,14 +202,14 @@
             alert("status " + status);
             alert("results " + results);
             if (status == google.maps.places.PlacesServiceStatus.OK) {
-              createMarkers(results);
-              alert("results ", results);
+              for (var i = 0; i < results.length; i++) {
+                createMarkers(results[i]);
+              }
             };
           }
 
           // Set markers at the location of each place result
-          function createMarkers(places) {
-            places.forEach(place => {
+          function createMarkers(place) {            
               let marker = new google.maps.Marker({
                 position: place.geometry.location,
                 map: map,
@@ -230,10 +230,8 @@
               service.getDetails(request, (placeResult, status) => {
                 showDetails(placeResult, marker, status)
               });
-            });
-
-            // Adjust the map bounds to include the location of this marker
-            bounds.extend(place.geometry.location);
+              // Adjust the map bounds to include the location of this marker
+              bounds.extend(place.geometry.location);
             });
             /* Once all the markers have been placed, adjust the bounds of the map to
               * show all the markers within the visible area. */
