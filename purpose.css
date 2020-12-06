@@ -24,6 +24,9 @@
     padding-top: 10px;
     font-size: 1.5em; 
 }
+.card {
+    padding-bottom: 10px;
+}
 
 .menu{
     background-color: #35B67F;
