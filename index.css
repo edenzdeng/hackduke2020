@@ -36,7 +36,7 @@ body {
   padding: 0;
 }
 
-.logo {
+/* .logo {
   max-width: 500px;
   padding: 0 10px;
   overflow: hidden;
@@ -79,7 +79,7 @@ body {
 
 .navbar ul li a {
   text-decoration: none;
-  color: #ffffff; /*color of main text in navbar*/
+  color: #ffffff; 
   font-size: 14px;
   text-transform: uppercase;
   display: block;
@@ -125,11 +125,11 @@ body {
 }
 
 .navbar .icon-bar i {
-  background-color: #ffffff; /*color of hamburger menu bars*/
+  background-color: #ffffff;
   height: 2px;
-}
+} */
 
-@media only screen and (max-width: 650px) {
+/* @media only screen and (max-width: 650px) {
   .navigation {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -142,11 +142,11 @@ body {
     flex: 1;
   }
 
-  /* .navbar {
+  .navbar {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
-  } */
+  } 
 
   .navbar ul {
     -ms-flex-wrap: nowrap;
@@ -157,7 +157,7 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    background: #ffffff; /*color of highlighted logo*/
+    background: #ffffff;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -185,7 +185,7 @@ body {
   .navbar ._Menus-show {
     left: 0;
   }
-}
+} */
 
 .body {
   max-width: 700px;
@@ -243,9 +243,9 @@ body {
     background-color: grey;
 }
 
-.navigation {
+/* .navigation {
   height: 80px;
-  background-color: #35B67F; /*color of main nav bar*/
+  background-color: #35B67F;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -255,7 +255,7 @@ body {
   overflow: hidden;
   width: 100%;
   margin: 0px;
-}
+} */
 
 #search{
   margin-left: 5px;
