@@ -133,7 +133,6 @@
             currentInfoWindow = infoWindow;
             infoPane = document.getElementById('panel');
             q = document.getElementById('query');
-            alert(q.value);
             // Try HTML5 geolocation
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(position => {
@@ -188,17 +187,21 @@
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
                 q = document.getElementById('query');
+                alert("nearby q " + q.value);
                 let request = {
                   location: position,
                   rankBy: google.maps.places.RankBy.DISTANCE,
                   keyword: q.value
                 };
                 service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, nearbyCallback);
+                alert("service " + service);
+                service.nearbySearch(request, nearbyCallback());
           }
 
           // Handle the results (up to 20) of the Nearby Search
           function nearbyCallback(results, status) {
+            alert("status " + status);
+            alert("results " + results);
             if (status == google.maps.places.PlacesServiceStatus.OK) {
               createMarkers(results);
               alert("results ", results);
