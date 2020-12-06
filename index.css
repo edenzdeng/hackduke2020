@@ -36,9 +36,10 @@ body {
 }
 
 .logo {
-  max-width: 250px;
+  max-width: 300px;
   padding: 0 10px;
   overflow: hidden;
+  padding-bottom: 5px;
 }
 
 .logo a {
