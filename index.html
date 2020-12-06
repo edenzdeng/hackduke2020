@@ -240,7 +240,6 @@
                   map: map,
                   title: place.name
                 });
-              }
               
               // Add click listener to each marker
               google.maps.event.addListener(marker, 'click', () => {
@@ -260,7 +259,8 @@
 
               // Adjust the map bounds to include the location of this marker
               bounds.extend(place.geometry.location);
-            });
+            }
+          });
             /* Once all the markers have been placed, adjust the bounds of the map to
               * show all the markers within the visible area. */
             map.fitBounds(bounds);
