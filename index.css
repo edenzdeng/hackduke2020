@@ -259,11 +259,12 @@ body {
   margin-left: 5px;
   background-color: #35B67F;
   color: white;
-  width: 46px !important; 
   padding-top: 0px !important; 
   padding-bottom: 20px !important; 
+  width: 65px !important; 
   height: 46px !important; 
-  padding-left: 10px !important;
+  padding-left: 18px !important; 
+  padding-right: 16px !important;
 }
 
 #form{
