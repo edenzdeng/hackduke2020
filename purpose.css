@@ -34,20 +34,17 @@
     font-size: 18px;
 }
 
-.nav-item{
-    padding: auto 20px;
-}
-
 .nav-link{
     color:white;
+    padding: auto 15px;
 }
 .nav-link:hover{
     color:white;
 }
 
 .logo {
-    height: 100px;
-    padding-left: 10px;
+    height: 3.5em;
+    padding-right: 10px;
     position:relative;
     top:0;
     left:0;
@@ -70,5 +67,6 @@
 
 .navbar-toggler-icon{
     background-color: white;
+    color:white;
 }
 
