@@ -245,8 +245,9 @@ body {
 }
 
 #query{
-  height: 46px;
+  height: 46px !important;
   padding: 10px 12px;
+  font-size: 18px;
 }
 
 #search{
