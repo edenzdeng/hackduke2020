@@ -184,8 +184,7 @@
           function getNearbyPlaces(position) {
 
             q=document.getElementById("query");
-            console.log(location);
-            console.log(q.value);
+
             let request = {
               location: position,
               rankBy: google.maps.places.RankBy.DISTANCE,
@@ -204,6 +203,17 @@
 
           // Set markers at the location of each place result
           function createMarkers(places) {
+            $.ajax({
+              type: "GET",
+              url: "TopChainRestaurants.csv",
+
+              success: function(data) {
+                var chains = data.split('\n').map(function(row){return row.split(',')});
+              }
+            });
+
+            console.log(chains);
+
             places.forEach(place => {
               let marker = new google.maps.Marker({
                 position: place.geometry.location,
