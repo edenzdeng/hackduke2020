@@ -35,11 +35,19 @@
     padding: auto 10px;
 }
 
+.nav-link{
+    color:white;
+}
+.nav-link:hover{
+    color:white;
+}
+
 .logo {
     max-width: 500px;
-    padding: 0 10px;
     overflow: hidden;
-    padding-bottom: 10px;
+    position:relative;
+    top:0;
+    left:0;
 }
 
 .logo a {
