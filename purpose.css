@@ -56,7 +56,11 @@
 }
 
 .card-header{
-    background-color: #68e0ace0 !important;
+    background-color: #b4ffdee0 !important;
     color: #247a55;
 
+}
+
+.card-body{
+    font-size: 18px;
 }
