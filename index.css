@@ -215,7 +215,7 @@ body {
 }
   
 .search-icon:before {
-    content: '';
+    content: '   ';
     position: absolute;
     top: 12px;
     left: 5px;
