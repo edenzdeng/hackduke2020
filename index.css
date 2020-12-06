@@ -244,8 +244,8 @@ body {
   margin: 0px;
 }
 
-#query{
-  height: 46px !important;
+.form-control{
+  height: 46px;
   padding: 10px 12px;
   font-size: 18px;
 }
