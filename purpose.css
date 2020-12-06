@@ -56,7 +56,7 @@
 }
 
 .card-header{
-    background-color: #68e0ace0;
+    background-color: #68e0ace0 !important;
     color: #247a55;
 
 }
