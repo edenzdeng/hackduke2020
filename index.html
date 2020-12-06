@@ -106,7 +106,7 @@
           <div class="search-bar"></div>  
             <form role="search" id="form">
                 <input id="query" class="form-control form-control-lg" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                <button class="btn btn-lg" id="search"><span class="search-icon"></span></button>       
+                <button class="btn btn-lg" onclick="initMap()" id="search"><span class="search-icon"></span></button>       
               </form>
             </div>
         </div>        
@@ -123,7 +123,7 @@
           let currentInfoWindow;
           let service;
           let infoPane;
-          // let q = document.getElementById('query');
+          let q = document.getElementById('query');
           var f = document.getElementById('form');
             
           function initMap() {
@@ -132,7 +132,8 @@
             infoWindow = new google.maps.InfoWindow;
             currentInfoWindow = infoWindow;
             infoPane = document.getElementById('panel');
-
+            q = document.getElementById('query');
+            alert(q.value);
             // Try HTML5 geolocation
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(position => {
@@ -186,7 +187,7 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
-                let q = document.getElementById('query');
+                q = document.getElementById('query');
                 let request = {
                   location: position,
                   rankBy: google.maps.places.RankBy.DISTANCE,
