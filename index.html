@@ -180,14 +180,34 @@
             getNearbyPlaces(pos);
           }
 
-          async function getChains(){
-            let response = await fetch("TopChainRestaurants.csv");
-            let data = await response.json();
-            console.log(response);
-            console.log(data);
-            var chains = data.split('\n').map(function(row){return row.split('\n')});
-            return chains;
+
+          function readTextFile(str){
+            var file = "./TopChainRestaurants.csv"
+            var rawFile = new XMLHttpRequest();
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function (){
+              if(rawFile.readyState === 4){
+                  if(rawFile.status === 200 || rawFile.status == 0){
+                      var allText = rawFile.responseText;
+                      //search for text
+                      if (allText.indexOf(str) > -1)
+                        return true
+                    else
+                        return false
+                      //alert(allText);
+                  }
+              }
+            }
+            rawFile.send(null);
           }
+          // async function getChains(){
+          //   let response = await fetch("TopChainRestaurants.csv");
+          //   let data = await response.json();
+          //   console.log(response);
+          //   console.log(data);
+          //   var chains = data.split('\n').map(function(row){return row.split('\n')});
+          //   return chains;
+          // }
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
@@ -213,16 +233,15 @@
           // Set markers at the location of each place result
           function createMarkers(places) {
 
-            chains = getChains()
-            console.log(chains);
-
             places.forEach(place => {
-              let marker = new google.maps.Marker({
+              if(readTextFile(place.name)){
+                let marker = new google.maps.Marker({
                 position: place.geometry.location,
                 map: map,
                 title: place.name
-              });
-
+              }
+            });
+              
               // Add click listener to each marker
               google.maps.event.addListener(marker, 'click', () => {
                 let request = {
