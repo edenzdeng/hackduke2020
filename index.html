@@ -189,7 +189,7 @@
               location: position,
               radius: '10000',
               query: q.value,
-              type: ['restaurant']
+              type: 'restaurant'
             };
             service = new google.maps.places.PlacesService(map);
             service.textSearch(request, (results, status) => {
@@ -316,7 +316,7 @@
         }
   </script>
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places&callback=initMap">
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places">
   </script>
         
     </body>   
