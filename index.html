@@ -98,7 +98,8 @@
         <div class="container-fluid">
             <form role="search" id="form">
                 <input id="query" class="form-control form-control-lg" type="search" onsearch="initMap()" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
-                <button class="btn btn-lg" onclick="initMap()" id="search"><span class="search-icon"></span></button>       
+                <button class="btn btn-lg" onclick="initMap()" id="search"><span class="search-icon"></span></button>
+                <input type="button" value="Feelin Lucky" id="lucky">
             </form>
         </div>        
         
@@ -126,11 +127,68 @@
           
           
           var form = document.getElementById("form");
+          var button = document.getElementById("lucky");
+          
           function handleForm(event) { 
               event.preventDefault(); 
               initMap();
           } 
           form.addEventListener('submit', handleForm);
+          
+          function feelinLucky(event) {
+          	    event.preventDefault();
+                const choices = ['italian', 'chinese', 'french', 'indian', 'mexican', 'spanish', 'japanese', 'korean', 'african', 'american', 'thai', 'greek', 'mediterranean', 'middle eastern'];
+                const random = Math.floor(Math.random() * choices.length);
+                getSomePlace(random);
+          }
+          button.addEventListener('click', feelinLucky);
+          
+         function getSomePlace(word) {
+            // Initialize variables
+            bounds = new google.maps.LatLngBounds();
+            infoWindow = new google.maps.InfoWindow;
+            currentInfoWindow = infoWindow;
+            infoPane = document.getElementById('panel');
+
+            // Try HTML5 geolocation
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(position => {
+                const pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: pos,
+                  zoom: 15
+                });
+                bounds.extend(pos);
+
+                infoWindow.setPosition(pos);
+                infoWindow.setContent('Location found.');
+                infoWindow.open(map);
+                map.setCenter(pos);
+
+                // Call random word search on user's location
+                let request = {
+                location: pos,
+                rankBy: google.maps.places.RankBy.DISTANCE,
+                keyword: word
+                };
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, singleCallback);
+              }, () => {
+                // Browser supports geolocation, but user has denied permission
+                handleLocationError(true, infoWindow);
+              });
+            } else {
+              // Browser doesn't support geolocation
+              handleLocationError(false, infoWindow);
+            }
+          }
+          
+          // one result
+          function singleCallback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+              createMarkers(results[0]);
+            }
+          }                                      
 
           function initMap() {
             // Initialize variables
