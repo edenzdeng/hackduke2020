@@ -56,11 +56,15 @@
 }
 
 .card-header{
-    background-color: #b4ffdee0 !important;
+    background-color: #b8eed7b2 !important;
     color: #247a55;
 
 }
 
 .card-body{
     font-size: 18px;
+}
+
+.card{
+    margin-bottom:20px;
 }
