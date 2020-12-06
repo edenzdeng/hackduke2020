@@ -7,7 +7,42 @@
     </head>
     
   <body>
-      <div id="section">
+    <header>
+        <!-- Navigation -->
+          <nav class="navigation">
+            <div class="logo">
+                <a href="index.html"><img src="SBElogo-02.png" alt="logo"></a>
+            </div>
+            <div class="navbar">
+
+              <div class="icon-bar" onclick="Show()">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+              </div>
+
+              <ul id="nav-lists">
+                  <li class="close"><span onlick="Hide()">×</span></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="purpose.html">Our Purpose</a></li>
+              </ul>
+
+            </div>
+            <script>
+              var navList = document.getElementById("nav-lists");
+              function Show() {
+              navList.classList.add("_Menus-show");
+              }
+
+              function Hide(){
+              navList.classList.remove("_Menus-show");
+              }
+            </script>
+         </nav>
+     </header>
+     
+    <div id="section">
         Small businesses are the heart of our community. They bring together friends, families, and neighbors, building genuine connections -- but small businesses have also been hit the hardest by COVID-19,
         Nearly 100,000 small businesses that temporarily shut down due to the pandemic have closed permanently. Local mom and pop shops are suffering more than ever, struggling to pay bills, constantly adapting to new government regulations, and competing with larger chains -- on top of dealing with the emotional, physical, and mental toll of the pandemic. 
         Among all this toil and uncertainty, you have the power to make a difference. The next time you're hungry, use SmallBizEatz. Every purchase matters when you're a small business, so think big. Shop small.
