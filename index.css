@@ -245,11 +245,13 @@ body {
 }
 
 #search{
-  /* margin-right: 5px; */
+  margin-left: 5px;
   background-color: #35B67F;
+  color: white;
 }
 
 #form{
   display: inline-flex;
   margin-bottom: 20px;
+  width: 50%;
 }
