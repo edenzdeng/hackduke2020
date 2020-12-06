@@ -123,6 +123,7 @@
           let service;
           let infoPane;
           let chains;
+          const apiKey = process.env.MAPS_API_KEY;
           
           window.onload = function() {
             d3.csv("TopChainRestaurants2020.csv").then(function(d) {
@@ -325,7 +326,7 @@
           }
         </script>
 
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places&callback=initMap">
+  <script async defer src=`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`>
   </script>
         <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
     </body>   
