@@ -15,3 +15,10 @@
     width: 100%;
     font-family: 'Noto Sans', sans-serif;
 }
+
+
+#blurb {
+    display: flex;
+    justify-content: center;
+    font-family: Times; 
+}
