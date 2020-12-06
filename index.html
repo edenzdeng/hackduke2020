@@ -196,8 +196,8 @@
             service = new google.maps.places.PlacesService(map);
             service.textSearch(request, (results, status) => {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log(results);
-                console.log(q.value);
+                console.log("Results", results);
+                console.log("Qvalue", q.value);
                 alert(results);
                 for (var i = 0; i < results.length; i++) {
                   createMarkers(results[i]);
