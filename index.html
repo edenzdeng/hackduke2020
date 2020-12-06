@@ -194,19 +194,27 @@
               keyword: q.value,
             };
             service = new google.maps.places.PlacesService(map);
-            service.nearbySearch(request, nearbyCallback());
+            service.nearbySearch(request, (results, status) => {
+              alert("status " + status);
+              alert("results " + results);
+              if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                  createMarkers(results[i]);
+                }
+              };
+            });
           }
 
           // Handle the results (up to 20) of the Nearby Search
-          function nearbyCallback(results, status) {
-            alert("status " + status);
-            alert("results " + results);
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-              for (var i = 0; i < results.length; i++) {
-                createMarkers(results[i]);
-              }
-            };
-          }
+          // function nearbyCallback(results, status) {
+          //   alert("status " + status);
+          //   alert("results " + results);
+          //   if (status == google.maps.places.PlacesServiceStatus.OK) {
+          //     for (var i = 0; i < results.length; i++) {
+          //       createMarkers(results[i]);
+          //     }
+          //   };
+          // }
 
           // Set markers at the location of each place result
           function createMarkers(place) {            
