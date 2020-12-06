@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap');
+
 .footer {
     display: block;
     position: fixed;
@@ -15,6 +18,15 @@
 
 .main{
   margin: auto auto;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+    padding-top: 30px;
+    color: #35B67F;
 }
 
 /**{
