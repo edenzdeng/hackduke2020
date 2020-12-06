@@ -244,9 +244,9 @@ body {
   margin: 0px;
 }
 
-#query{
-  margin-right: 5px;
-  /* background-color: #35B67F; */
+#search{
+  /* margin-right: 5px; */
+  background-color: #35B67F;
 }
 
 .search-bar{
