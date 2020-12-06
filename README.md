@@ -11,3 +11,5 @@ The COVID-19 pandemic has impacted so many different aspects of life and all maj
 Describe the problem your solution addresses? (150 word limit)
 
 Through the use of our site's search bar, users help restaurants in their localities by directly ordering food from the small food businesses and restaurants nearby. While satisfying their appetite by buying from the restaurants featured on our site, users in turn help their local restaurants and small food businesses stay running. As more and more smaller restaurants are forced to close due to COVID-19 restrictions taking a toll on owners economically, it is local communities that have the power to help their neighbors stay afloat. By putting money in the hands of smaller food businesses and their owners and limiting purchases from chain-restaurants, SmartBizEats' users help support a sector of the small business community that is hurting financially especially now. 
+
+© 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng
