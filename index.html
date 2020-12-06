@@ -319,14 +319,14 @@
             }
 
             let randplace = Math.floor(Math.random() * smallplaces.length);
-                let marker = new google.maps.Marker({
+            let marker = new google.maps.Marker({
                   position: randplace.geometry.location,
                   map: map,
                   title: randplace.name
                 });
               
               // Add click listener to each marker
-              google.maps.event.addListener(marker, 'click', () => {
+             google.maps.event.addListener(marker, 'click', () => {
                 let request = {
                   placeId: randplace.place_id,
                   fields: ['name', 'formatted_address', 'geometry', 'rating',
@@ -342,11 +342,7 @@
               });
 
               // Adjust the map bounds to include the location of this marker
-              bounds.extend(place.geometry.location);
-            }
-          });
-            /* Once all the markers have been placed, adjust the bounds of the map to
-              * show all the markers within the visible area. */
+            bounds.extend(randplace.geometry.location);
             map.fitBounds(bounds);
           }
 
