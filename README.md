@@ -5,7 +5,7 @@ Our project falls under the inequality track for HackDuke2020. This repo contain
 
 Describe the problem your solution addresses? (150 word limit)
 
-The COVID-19 pandemic has impacted so many different aspects of life and all major industries, but one of the most negatively impacted sectors is the restaurant and food service industry. It is the smaller food businesses and independent restaurants that continue to face the worst of the economic crisis. Larger chain restaurants are simply more equipped to handle the coronavirus shutdowns as smaller businesses scramble for help from the government and customers. 
+The COVID-19 pandemic has impacted so many different aspects of life and all major industries, but one of the most negatively impacted sectors is the restaurant and food service industry. It is the smaller food businesses and independent restaurants that continue to face the worst of the economic crisis. Larger chain restaurants are simply more equipped to handle the coronavirus shutdowns as smaller businesses scramble for financial support from the government and customers. Spreading the dollar to these small businesses is crucial to keeping the restaurants open so the owners and their employers can make continue to make ends meet despite the incredible financial stress COVID-19 restrictions have created for these restaurants. 
 
 
 Describe the problem your solution addresses? (150 word limit)
