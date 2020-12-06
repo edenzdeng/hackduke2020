@@ -49,8 +49,7 @@
               display: block;
             }
         
-            .place,
-            p {
+            .place, p {
               font-family: 'open sans', arial, sans-serif;
               padding-left: 18px;
               padding-right: 18px;
@@ -198,6 +197,7 @@
             service.nearbySearch(request, (results, status) => {
               if (status == google.maps.places.PlacesServiceStatus.OK) {
                 console.log(results);
+                console.log(q.value);
                 alert(results);
                 for (var i = 0; i < results.length; i++) {
                   createMarkers(results[i]);
