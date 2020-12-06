@@ -123,6 +123,10 @@
           let service;
           let infoPane;
           
+          let chains = d3.csv("TopChainRestaurants2020.csv").then(function(d) {
+              return d.values();
+          })
+          
           var form = document.getElementById("form");
           function handleForm(event) { 
               event.preventDefault(); 
@@ -186,12 +190,9 @@
           }
 
 
-          function readTextFile(str){
-            d3.csv("TopChainRestaurants2020.csv").then(function(d) {
-              console.log(d);
-              return d;
-            })//.then(function(data) {
-            //   console.log(data);
+          function isChain(str){
+            console.log("CHAINS", chains);
+            return chains.includes(str);
           };
 
           // async function getChains(){
