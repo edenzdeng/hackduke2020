@@ -191,13 +191,13 @@
             let request = {
               location: position,
               radius: '500',
-              keyword: q.value,
+              keyword: q.value
             };
             service = new google.maps.places.PlacesService(map);
             service.nearbySearch(request, (results, status) => {
-              alert("status " + status);
-              alert("results " + results);
               if (status == google.maps.places.PlacesServiceStatus.OK) {
+                console.log(results);
+                alert(results);
                 for (var i = 0; i < results.length; i++) {
                   createMarkers(results[i]);
                 }
