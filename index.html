@@ -190,12 +190,14 @@
                 alert("nearby q " + q.value);
                 let request = {
                   location: position,
+                  radius: '100',
                   rankBy: google.maps.places.RankBy.DISTANCE,
-                  keyword: q.value
+                  keyword: q.value,
+                  type: ['restaurant']
                 };
                 service = new google.maps.places.PlacesService(map);
                 alert("service " + service);
-                service.nearbySearch(request, nearbyCallback());
+                service.nearbySearch(request, nearbyCallback;
           }
 
           // Handle the results (up to 20) of the Nearby Search
