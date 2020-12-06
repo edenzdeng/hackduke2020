@@ -47,7 +47,7 @@ body {
   flex-wrap: wrap;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
+  align-items: left;
   height: 80px;
 }
 
