@@ -120,6 +120,11 @@
           let currentInfoWindow;
           let service;
           let infoPane;
+          
+          var form = document.getElementById("myForm");
+          function handleForm(event) { event.preventDefault(); } 
+          form.addEventListener('click', handleForm);
+
           function initMap() {
             // Initialize variables
             bounds = new google.maps.LatLngBounds();
@@ -180,6 +185,7 @@
 
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
+
             q=document.getElementById("query");
             let request = {
               location: position,
