@@ -152,7 +152,7 @@
                 map.setCenter(pos);
 
                 // Call Places Nearby Search on user's location
-                f.addEventListener('submit', getNearbyPlaces(pos));
+                getNearbyPlaces(pos)
               }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
@@ -181,7 +181,7 @@
             currentInfoWindow = infoWindow;
 
             // Call Places Nearby Search on the default location
-            f.addEventListener('submit', getNearbyPlaces(pos));
+            getNearbyPlaces(pos);
           }
 
           // Perform a Places Nearby Search Request
