@@ -139,7 +139,7 @@
           	    event.preventDefault();
                 const choices = ['italian', 'chinese', 'french', 'indian', 'mexican', 'spanish', 'japanese', 'korean', 'african', 'american', 'thai', 'greek', 'mediterranean', 'middle eastern'];
                 const random = Math.floor(Math.random() * choices.length);
-                getSomePlace(random);
+                getSomePlace(choices[random]);
           }
           button.addEventListener('click', feelinLucky);
           
@@ -318,7 +318,8 @@
                 }
             });
 
-            let randplace = Math.floor(Math.random() * smallplaces.length);
+            let x = Math.floor(Math.random() * smallplaces.length);
+            let randplace = smallplaces[x];
             let marker = new google.maps.Marker({
                   position: randplace.geometry.location,
                   map: map,
