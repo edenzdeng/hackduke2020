@@ -52,7 +52,7 @@ body {
 .search-icon {
     color: white;
     position: absolute;
-    margin-top: 2px;
+    margin: 2px;
     margin-left: 3px;
     width: 14px;
     height: 14px;
@@ -80,8 +80,8 @@ body {
 .search-icon:after {
   content: ' ';
   position: absolute;
-  top: 12px;
-  left: 5px;
+  bottom: 12px;
+  right: 5px;
   height: 6px;
   width: 1px;
   background-color: currentColor; 
@@ -108,6 +108,7 @@ body {
   display: inline-flex;
   margin-bottom: 20px;
   width: 50%;
+  min-width: 100px;
 }
 
 #query{
