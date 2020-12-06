@@ -184,10 +184,12 @@
           function getNearbyPlaces(position) {
 
             q=document.getElementById("query");
-
+            console.log(location);
+            console.log(q.value);
             let request = {
               location: position,
               rankBy: google.maps.places.RankBy.DISTANCE,
+              radius:'50000',
               keyword: q.value
             };
             service = new google.maps.places.PlacesService(map);
