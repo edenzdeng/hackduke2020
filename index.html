@@ -217,7 +217,7 @@
             let request = {
               location: position,
               rankBy: google.maps.places.RankBy.DISTANCE,
-              keyword: 'pizza'
+              keyword: q.value
             };
             service = new google.maps.places.PlacesService(map);
             service.nearbySearch(request, nearbyCallback);
