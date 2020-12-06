@@ -56,7 +56,7 @@ body {
   max-height: 100px;
 }
 
-/* .navbar {
+.navbar {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -64,7 +64,7 @@ body {
   -ms-flex: 1;
   flex: 1;
   padding: 0 10px;
-} */
+}
 
 .navbar ul {
   display: flex;
