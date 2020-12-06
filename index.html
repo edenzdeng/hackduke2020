@@ -187,7 +187,6 @@
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
                 q = document.getElementById('query');
-                alert("nearby q " + q.value);
                 let request = {
                   location: position,
                   radius: '100',
@@ -196,7 +195,6 @@
                   type: ['restaurant']
                 };
                 service = new google.maps.places.PlacesService(map);
-                alert("service " + service);
                 service.nearbySearch(request, nearbyCallback);
           }
 
