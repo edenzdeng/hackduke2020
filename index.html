@@ -120,27 +120,23 @@
           let currentInfoWindow;
           let service;
           let infoPane;
-          let q = document.getElementById('query');
-          var f = document.getElementById('form');
-            
           function initMap() {
             // Initialize variables
             bounds = new google.maps.LatLngBounds();
             infoWindow = new google.maps.InfoWindow;
             currentInfoWindow = infoWindow;
             infoPane = document.getElementById('panel');
-            q = document.getElementById('query');
+
             // Try HTML5 geolocation
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(position => {
-                // pos = {
-                //   lat: position.coords.latitude,
-                //   lng: position.coords.longitude
-                // };
-                pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+                };
                 map = new google.maps.Map(document.getElementById('map'), {
                   center: pos,
-                  zoom: 100
+                  zoom: 15
                 });
                 bounds.extend(pos);
 
@@ -150,7 +146,7 @@
                 map.setCenter(pos);
 
                 // Call Places Nearby Search on user's location
-                getNearbyPlaces()
+                getNearbyPlaces(pos);
               }, () => {
                 // Browser supports geolocation, but user has denied permission
                 handleLocationError(true, infoWindow);
@@ -164,14 +160,14 @@
           // Handle a geolocation error
           function handleLocationError(browserHasGeolocation, infoWindow) {
             // Set default location to Sydney, Australia
-            pos = new google.maps.LatLng(-33.856,151.215);
+            pos = { lat: -33.856, lng: 151.215 };
             map = new google.maps.Map(document.getElementById('map'), {
               center: pos,
-              zoom: 100
+              zoom: 15
             });
 
             // Display an InfoWindow at the map center
-            infoWindow.setPosition();
+            infoWindow.setPosition(pos);
             infoWindow.setContent(browserHasGeolocation ?
               'Geolocation permissions denied. Using default location.' :
               'Error: Your browser doesn\'t support geolocation.');
@@ -179,75 +175,54 @@
             currentInfoWindow = infoWindow;
 
             // Call Places Nearby Search on the default location
-            getNearbyPlaces();
+            getNearbyPlaces(pos);
           }
 
           // Perform a Places Nearby Search Request
-          function getNearbyPlaces() {
-            let locat
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(position => {
-                alert("position "+position);
-                locat = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-              })
-            } else{ 
-              locat = new google.maps.LatLng(-33.856,151.215);
-            }
-            alert("LOCATION " + locat);
-            q = document.getElementById('query');
+          function getNearbyPlaces(position) {
+            q=document.getElementById("query");
             let request = {
-              location: locat,
-              radius: '10000',
-              query: q.value,
-              type: 'restaurant'
+              location: position,
+              rankBy: google.maps.places.RankBy.DISTANCE,
+              keyword: q.value
             };
+
             service = new google.maps.places.PlacesService(map);
-            service.textSearch(request, (results, status) => {
-              if (status == google.maps.places.PlacesServiceStatus.OK) {
-                console.log("Results", results);
-                console.log("Qvalue", q.value);
-                alert(results);
-                for (var i = 0; i < results.length; i++) {
-                  createMarkers(results[i]);
-                }
-                map.setCenter(results[0].geometry.location);
-              };
-            });
+            service.nearbySearch(request, nearbyCallback);
           }
 
           // Handle the results (up to 20) of the Nearby Search
-          // function nearbyCallback(results, status) {
-          //   alert("status " + status);
-          //   alert("results " + results);
-          //   if (status == google.maps.places.PlacesServiceStatus.OK) {
-          //     for (var i = 0; i < results.length; i++) {
-          //       createMarkers(results[i]);
-          //     }
-          //   };
-          // }
+          function nearbyCallback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+              createMarkers(results);
+            }
+          }
 
           // Set markers at the location of each place result
-          function createMarkers(place) {            
+          function createMarkers(places) {
+            places.forEach(place => {
               let marker = new google.maps.Marker({
                 position: place.geometry.location,
                 map: map,
                 title: place.name
-            });
-
-            // Add click listener to each marker
-            google.maps.event.addListener(marker, 'click', () => {
-              let request = {
-                placeId: place.place_id,
-                fields: ['name', 'formatted_address', 'geometry', 'rating',
-                  'website', 'photos']
-              };
-
-              /* Only fetch the details of a place when the user clicks on a marker.
-                * If we fetch the details for all place results as soon as we get
-                * the search response, we will hit API rate limits. */
-              service.getDetails(request, (placeResult, status) => {
-                showDetails(placeResult, marker, status)
               });
+
+              // Add click listener to each marker
+              google.maps.event.addListener(marker, 'click', () => {
+                let request = {
+                  placeId: place.place_id,
+                  fields: ['name', 'formatted_address', 'geometry', 'rating',
+                    'website', 'photos']
+                };
+
+                /* Only fetch the details of a place when the user clicks on a marker.
+                  * If we fetch the details for all place results as soon as we get
+                  * the search response, we will hit API rate limits. */
+                service.getDetails(request, (placeResult, status) => {
+                  showDetails(placeResult, marker, status)
+                });
+              });
+
               // Adjust the map bounds to include the location of this marker
               bounds.extend(place.geometry.location);
             });
@@ -256,74 +231,74 @@
             map.fitBounds(bounds);
           }
 
-        // Builds an InfoWindow to display details above the marker
-        function showDetails(placeResult, marker, status) {
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            let placeInfowindow = new google.maps.InfoWindow();
-            let rating = "None";
-            if (placeResult.rating) rating = placeResult.rating;
-            placeInfowindow.setContent('<div><strong>' + placeResult.name +
-              '</strong><br>' + 'Rating: ' + rating + '</div>');
-            placeInfowindow.open(marker.map, marker);
-            currentInfoWindow.close();
-            currentInfoWindow = placeInfowindow;
-            showPanel(placeResult);
-          } else {
-            console.log('showDetails failed: ' + status);
-          }
-        }
-
-        // Displays place details in a sidebar
-        function showPanel(placeResult) {
-          // If infoPane is already open, close it
-          if (infoPane.classList.contains("open")) {
-            infoPane.classList.remove("open");
+          // Builds an InfoWindow to display details above the marker
+          function showDetails(placeResult, marker, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+              let placeInfowindow = new google.maps.InfoWindow();
+              let rating = "None";
+              if (placeResult.rating) rating = placeResult.rating;
+              placeInfowindow.setContent('<div><strong>' + placeResult.name +
+                '</strong><br>' + 'Rating: ' + rating + '</div>');
+              placeInfowindow.open(marker.map, marker);
+              currentInfoWindow.close();
+              currentInfoWindow = placeInfowindow;
+              showPanel(placeResult);
+            } else {
+              console.log('showDetails failed: ' + status);
+            }
           }
 
-          // Clear the previous details
-          while (infoPane.lastChild) {
-            infoPane.removeChild(infoPane.lastChild);
-          }
+          // Displays place details in a sidebar
+          function showPanel(placeResult) {
+            // If infoPane is already open, close it
+            if (infoPane.classList.contains("open")) {
+              infoPane.classList.remove("open");
+            }
 
-          // Add the primary photo, if there is one
-          if (placeResult.photos) {
-            let firstPhoto = placeResult.photos[0];
-            let photo = document.createElement('img');
-            photo.classList.add('hero');
-            photo.src = firstPhoto.getUrl();
-            infoPane.appendChild(photo);
-          }
+            // Clear the previous details
+            while (infoPane.lastChild) {
+              infoPane.removeChild(infoPane.lastChild);
+            }
 
-          // Add place details with text formatting
-          let name = document.createElement('h1');
-          name.classList.add('place');
-          name.textContent = placeResult.name;
-          infoPane.appendChild(name);
-          if (placeResult.rating) {
-            let rating = document.createElement('p');
-            rating.classList.add('details');
-            rating.textContent = `Rating: ${placeResult.rating} \u272e`;
-            infoPane.appendChild(rating);
-          }
-          let address = document.createElement('p');
-          address.classList.add('details');
-          address.textContent = placeResult.formatted_address;
-          infoPane.appendChild(address);
-          if (placeResult.website) {
-            let websitePara = document.createElement('p');
-            let websiteLink = document.createElement('a');
-            let websiteUrl = document.createTextNode(placeResult.website);
-            websiteLink.appendChild(websiteUrl);
-            websiteLink.title = placeResult.website;
-            websiteLink.href = placeResult.website;
-            websitePara.appendChild(websiteLink);
-            infoPane.appendChild(websitePara);
-          }
+            // Add the primary photo, if there is one
+            if (placeResult.photos) {
+              let firstPhoto = placeResult.photos[0];
+              let photo = document.createElement('img');
+              photo.classList.add('hero');
+              photo.src = firstPhoto.getUrl();
+              infoPane.appendChild(photo);
+            }
 
-          // Open the infoPane
-          infoPane.classList.add("open");
-        }
-  </script>
+            // Add place details with text formatting
+            let name = document.createElement('h1');
+            name.classList.add('place');
+            name.textContent = placeResult.name;
+            infoPane.appendChild(name);
+            if (placeResult.rating) {
+              let rating = document.createElement('p');
+              rating.classList.add('details');
+              rating.textContent = `Rating: ${placeResult.rating} \u272e`;
+              infoPane.appendChild(rating);
+            }
+            let address = document.createElement('p');
+            address.classList.add('details');
+            address.textContent = placeResult.formatted_address;
+            infoPane.appendChild(address);
+            if (placeResult.website) {
+              let websitePara = document.createElement('p');
+              let websiteLink = document.createElement('a');
+              let websiteUrl = document.createTextNode(placeResult.website);
+              websiteLink.appendChild(websiteUrl);
+              websiteLink.title = placeResult.website;
+              websiteLink.href = placeResult.website;
+              websitePara.appendChild(websiteLink);
+              infoPane.appendChild(websitePara);
+            }
+
+            // Open the infoPane
+            infoPane.classList.add("open");
+          }
+        </script>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5PI1O5vPi-g7P1-Dkgesg6fWh6C7kFI0&libraries=places&callback=initMap">
   </script>
