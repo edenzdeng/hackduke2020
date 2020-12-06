@@ -139,12 +139,12 @@ body {
     -ms-flex: 1;
     flex: 1;
   }
-
+/* 
   /* .navbar {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
-  } */
+  } */ */
 
   .navbar ul {
     -ms-flex-wrap: nowrap;
@@ -165,22 +165,22 @@ body {
   }
 
   .navbar ul li a {
-    padding: 0px 10px;
+    padding: 10px;
     font-size: 16px;
     height: auto;
     line-height: normal;
     color: #35B67F;
   }
 
-  .close {
+  .navbar ul .close {
     display: block;
   }
 
-  .icon-bar {
+  .navbar .icon-bar {
     display: flex;
   }
 
-  ._Menus-show {
+  .navbar ._Menus-show {
     left: 0;
   }
 }
