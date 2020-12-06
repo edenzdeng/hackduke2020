@@ -244,12 +244,12 @@ body {
   margin: 0px;
 }
 
-#form{
+.search-bar{
   display: inline-flex;
   margin-bottom: 20px;
 }
 
-#form button{
+#search{
   margin-left: 5px;
   background-color: #35B67F;
 }
