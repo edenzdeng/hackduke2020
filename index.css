@@ -105,3 +105,8 @@ body {
   height: 46px; /*!important; */
   font-size: 18px;
 }
+
+.lucky{
+  background-color: #35B67F;
+  color: white;
+}
