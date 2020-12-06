@@ -102,12 +102,10 @@
        </header>
         <h1 id="pagetitle">SmallBizEatz</h1>
         <div class="container-fluid">
-          <div class="search-bar">  
             <form role="search" id="form">
                 <input id="query" class="form-control form-control-lg" type="search" placeholder="I'm hungry for..." aria-label="Search for local eateries" name="q">
                 <button class="btn btn-lg" onclick="return initMap()" id="search"><span class="search-icon"></span></button>       
             </form>
-          </div>
         </div>        
         <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
         <div id="panel"></div>
@@ -203,6 +201,7 @@
                 for (var i = 0; i < results.length; i++) {
                   createMarkers(results[i]);
                 }
+                map.setCenter(results[0].geometry.location);
               };
             });
           }
@@ -250,7 +249,7 @@
 
         // Builds an InfoWindow to display details above the marker
         function showDetails(placeResult, marker, status) {
-          if (status == google.maps.places.PlacesServiceStatus.OK) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
             let placeInfowindow = new google.maps.InfoWindow();
             let rating = "None";
             if (placeResult.rating) rating = placeResult.rating;
