@@ -236,10 +236,11 @@
             places.forEach(place => {
               if(readTextFile(place.name)){
                 let marker = new google.maps.Marker({
-                position: place.geometry.location,
-                map: map,
-                title: place.name
-              });
+                  position: place.geometry.location,
+                  map: map,
+                  title: place.name
+                });
+              }
               
               // Add click listener to each marker
               google.maps.event.addListener(marker, 'click', () => {
