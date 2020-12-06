@@ -187,16 +187,13 @@
           function getNearbyPlaces(position) {
 
             q=document.getElementById("query");
+
             let request = {
               location: position,
               radius: 50000,
               rankBy: google.maps.places.RankBy.DISTANCE,
-              keyword: 'pizza'
+              keyword: q.value
             };
-
-            console.log(q);
-            alert(q.value);
-            
             service = new google.maps.places.PlacesService(map);
             service.nearbySearch(request, nearbyCallback);
           }
