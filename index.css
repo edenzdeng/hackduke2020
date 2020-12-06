@@ -249,7 +249,7 @@ body {
   background-color: #35B67F;
 }
 
-.search-bar{
+#form{
   display: inline-flex;
   margin-bottom: 20px;
 }
