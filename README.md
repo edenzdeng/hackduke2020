@@ -5,7 +5,7 @@ Our project falls under the inequality track for HackDuke2020. This repo contain
 
 Describe the problem your solution addresses? (150 word limit)
 
-Like many industries, COVID-19 has a huge impact on small businesses. 
+The COVID-19 pandemic has impacted so many different aspects of life and all major industries, but one of the most negatively impacted sectors is the restaurant and food service industry. It is the smaller food businesses and independent restaurants that continue to face the worst of the economic crisis. Larger chain restaurants are simply more equipped to handle the coronavirus shutdowns as smaller businesses scramble for help from the government and customers. 
 
 
 Describe the problem your solution addresses? (150 word limit)
