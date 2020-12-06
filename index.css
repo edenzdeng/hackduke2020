@@ -244,12 +244,12 @@ body {
   margin: 0px;
 }
 
-.search-bar{
-  display: inline-flex;
-  margin-bottom: 20px;
-}
-
 #query{
   margin-right: 5px;
   /* background-color: #35B67F; */
+}
+
+.search-bar{
+  display: inline-flex;
+  margin-bottom: 20px;
 }
