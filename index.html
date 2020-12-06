@@ -184,7 +184,7 @@
 
 
           function readTextFile(str){
-            d3.dsv("\n", "TopChainRestaurant.csv", function(d) {
+            d3.csv("TopChainRestaurants2020.csv").then(function(d) {
               console.log(d);
               return d;
             })//.then(function(data) {
