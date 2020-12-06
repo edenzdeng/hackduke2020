@@ -184,11 +184,12 @@
 
 
           function readTextFile(str){
-            d3.csv("./TopChainRestaurants.csv").then(function(data) {
-              console.log(data);
-              return data; // [{"Hello": "world"}, …]
-            });
-          }
+            d3.dsv("\n", "TopChainRestaurant.csv", function(d) {
+              console.log(d);
+              return d;
+            })//.then(function(data) {
+            //   console.log(data);
+            // });
 
           // async function getChains(){
           //   let response = await fetch("TopChainRestaurants.csv");
