@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url(//db.onlinewebfonts.com/c/2d6def8bfbec65451080676bb7868ce3?family=Arkibal+Serif);
+
 
 #pagetitle {
     text-align: center;
+    font-family: "Arkibal Serif"; 
 }
 .footer {
     display: block;
