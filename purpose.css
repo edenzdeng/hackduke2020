@@ -28,4 +28,9 @@
 .menu{
     background-color: #35B67F;
     color:white;
+    font-size: 18px;
+}
+
+.nav-item{
+    padding: auto 10px;
 }

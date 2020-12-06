@@ -139,12 +139,12 @@ body {
     -ms-flex: 1;
     flex: 1;
   }
-/* 
+
   /* .navbar {
     -webkit-box-flex: 0;
     -ms-flex: 0;
     flex: 0;
-  } */ */
+  } */
 
   .navbar ul {
     -ms-flex-wrap: nowrap;
