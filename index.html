@@ -180,6 +180,15 @@
             getNearbyPlaces(pos);
           }
 
+          async function getChains(){
+            let response = await fetch("TopChainRestaurants.csv");
+            let data = await response.json();
+            console.log(response);
+            console.log(data);
+            var chains = data.split('\n').map(function(row){return row.split('\n')});
+            return chains;
+          }
+
           // Perform a Places Nearby Search Request
           function getNearbyPlaces(position) {
 
@@ -203,15 +212,8 @@
 
           // Set markers at the location of each place result
           function createMarkers(places) {
-            $.ajax({
-              type: "GET",
-              url: "TopChainRestaurants.csv",
 
-              success: function(data) {
-                var chains = data.split('\n').map(function(row){return row.split(',')});
-              }
-            });
-
+            chains = getChains()
             console.log(chains);
 
             places.forEach(place => {
