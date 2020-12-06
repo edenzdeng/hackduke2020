@@ -274,6 +274,6 @@ body {
 }
 
 #query{
-  height: 46px !important; 
+  height: 46px; /*!important; */
   font-size: 18px;
 }
