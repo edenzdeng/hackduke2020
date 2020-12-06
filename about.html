@@ -45,38 +45,61 @@
         </div> -->
         
         
-        <img id="myImg" src="20191220_162453_Original.jpeg" alt="photo of Lisa" style="width:100%;max-width:300px">
-
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-              <span class="close">&times;</span>
-              <img class="modal-content" id="img01">
-              <div id="caption"></div>
+        <div class="row">
+          <div class="column">
+            <div class="card">
+              <img src="20191220_162453_Original.jpeg" alt="Lisa" style="width:100%">
+              <div class="container">
+                <h2>Lisa Tang</h2>
+                <p class="title">Full-stack engineer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
             </div>
+          </div>
 
-            <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
+          <div class="column">
+            <div class="card">
+              <img src="IMG_3889 2.jpg" alt="Sonya" style="width:100%">
+              <div class="container">
+                <h2>Sonya Patel</h2>
+                <p class="title">Front-end engineer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div> 
+            
+          <div class="column">
+            <div class="card">
+              <img src="Eden_Duke_photo.jpeg" alt="Eden" style="width:100%">
+              <div class="container">
+                <h2>Eden Deng</h2>
+                <p class="title">Back-end engineer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
 
-            // Get the image and insert it inside the modal - use its "alt" text as a caption
-            var img = document.getElementById("myImg");
-            var modalImg = document.getElementById("img01");
-            var captionText = document.getElementById("caption");
-            img.onclick = function(){
-              modal.style.display = "block";
-              modalImg.src = this.src;
-              captionText.innerHTML = this.alt;
-            }
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() { 
-              modal.style.display = "none";
-            }
-            </script>
-
+          <div class="column">
+            <div class="card">
+              <img src="Screen%20Shot%202020-12-06%20at%201.48.35%20PM.jpeg" alt="Vaishvi" style="width:100%">
+              <div class="container">
+                <h2>Vaishvi Patel</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      
     </main> 
     
     <footer class="footer">&copy 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng</footer>
