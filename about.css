@@ -17,6 +17,13 @@
   margin: auto auto;
 }
 
+.heading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
+}
+
 /**{
   margin:0;
   padding:0;
