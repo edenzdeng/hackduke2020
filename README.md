@@ -14,5 +14,5 @@ We've only filtered local restaurants from chain restaurants in our current webs
 \
 \
 \
-This project was created for HackDuke 2020 under the inequality track (Q1). Built with HTML, CSS, and JS (Q4).\
-© 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng
+*This project was created for HackDuke 2020 under the inequality track (Q1). Built with HTML, CSS, and JS (Q4).\
+© 2020 Built by Sonya & Vaishvi Patel, Lisa Tang, and Eden Deng*
