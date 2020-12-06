@@ -38,7 +38,7 @@ body {
   max-width: 500px;
   padding: 0 10px;
   overflow: hidden;
-  padding-bottom: 0px;
+  padding-bottom: 10px;
 }
 
 .logo a {
@@ -47,7 +47,7 @@ body {
   flex-wrap: wrap;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: left;
+  align-items: center;
   height: 80px;
 }
 
