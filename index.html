@@ -315,8 +315,8 @@
             places.forEach(place => {
                 if(!isChain(place.name)){
                     smallplaces.push(place);
-                });
-            }
+                }
+            });
 
             let randplace = Math.floor(Math.random() * smallplaces.length);
             let marker = new google.maps.Marker({
@@ -331,7 +331,7 @@
                   placeId: randplace.place_id,
                   fields: ['name', 'formatted_address', 'geometry', 'rating',
                     'website', 'photos']
-                };
+                }; 
 
                 /* Only fetch the details of a place when the user clicks on a marker.
                   * If we fetch the details for all place results as soon as we get
